@@ -11,3 +11,5 @@ def add_income(data):
     amount = float(input("Betrag: "))
     data.append({"Datum": date, "Typ": "Einnahme", "Kategorie": category, "Betrag": amount})
     print("✅ Einnahme gespeichert.\n")
+    #test
+    
