@@ -1,4 +1,5 @@
 from datetime import datetime
+from budgetfunctions import *
 
 # ============================================
 #   Validierungsfunktionen
@@ -21,6 +22,7 @@ def input_date(prompt):
             return value
         except ValueError:
             print("❌ Ungültiges Datum! Bitte TT.MM.JJJJ eingeben.")
+    
 
 
 def input_amount(prompt):
@@ -51,7 +53,8 @@ def input_amount(prompt):
 
         except ValueError:
             print("❌ Ungültige Zahl!")
-
+        except IndexError:
+            print("❌ Ungültige Zahl!")
 
 def input_category(prompt, allowed_categories):
     """
