@@ -77,7 +77,7 @@ def handle_choice(choice, data, filename):
 
 def login():
     """
-    Fordert Benutzer:in zur Passworteingabe auf.
+    Fordert Benutzer zur Passworteingabe auf.
     - Wenn noch kein Passwort gesetzt ist: neues Passwort anlegen.
     - Sonst: Passwort 
     """
