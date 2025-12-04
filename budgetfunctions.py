@@ -1,3 +1,4 @@
+from validationfunctions import *
 
 # ============================================
 #   Hauptfunktionen für Einnahmen & Ausgaben
@@ -20,7 +21,6 @@ def add_income(data, allowed_categories):
         "Kategorie": kategorie,
         "Betrag": betrag
     }
-
     data.append(eintrag)
     print("✅ Einnahme gespeichert!\n")
 
