@@ -34,7 +34,7 @@ def show_menu():
     """
     Zeigt das Hauptmenü an.
     """
-    print("\n--- BUDGET TRACKER ---/n")
+    print("\n--- BUDGET TRACKER ---\n")
     print("1. Einnahme hinzufügen")
     print("2. Ausgabe hinzufügen")
     print("3. Verfügbares Budget anzeigen")
