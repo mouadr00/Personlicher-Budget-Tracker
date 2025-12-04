@@ -82,7 +82,7 @@ def login():
     - Sonst: Passwort 
     """
     if not os.path.exists(PASSWORD_FILE):
-        print("Es wurde noch kein Passwort gesetzt.)
+        print("Es wurde noch kein Passwort gesetzt.")
         new_pw = input("Bitte neues Passwort festlegen (mind. 6 Zeichen): ")
         # TODO: Validierung (Länge etc.) - Eleonora
         save_password_hash(new_pw)
