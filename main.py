@@ -1,3 +1,5 @@
+from validationfunctions import *
+
 def main():
     """
     Hauptfunktion:
