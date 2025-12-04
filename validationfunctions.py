@@ -54,7 +54,7 @@ def input_amount(prompt):
         except ValueError:
             print("❌ Ungültige Zahl!")
         except IndexError:
-            print("❌ Ungültige Zahl!")
+            print("❌ Ungültiges Zahlenformat!")
 
 def input_category(prompt, allowed_categories):
     """
