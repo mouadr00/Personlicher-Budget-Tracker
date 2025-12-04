@@ -1,5 +1,4 @@
 from datetime import datetime
-from budgetfunctions import *
 
 # ============================================
 #   Validierungsfunktionen
