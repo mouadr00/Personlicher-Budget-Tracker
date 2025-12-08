@@ -22,7 +22,7 @@ def add_income(data, allowed_categories):
         "Betrag": betrag
     }
     data.append(eintrag)
-    print("✅ Einnahme gespeichert!\n")
+    print("Einnahme gespeichert!\n")
 
 
 def add_expense(data, allowed_categories):
@@ -44,4 +44,4 @@ def add_expense(data, allowed_categories):
     }
 
     data.append(eintrag)
-    print("✅ Ausgabe gespeichert!\n")
+    print("Ausgabe gespeichert!\n")
