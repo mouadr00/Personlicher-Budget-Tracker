@@ -20,7 +20,7 @@ def input_date(prompt):
             datetime.strptime(value, "%d.%m.%Y")
             return value
         except ValueError:
-            print("❌ Ungültiges Datum! Bitte TT.MM.JJJJ eingeben.")
+            print("Ungültiges Datum! Bitte TT.MM.JJJJ eingeben.")
     
 
 
@@ -41,19 +41,19 @@ def input_amount(prompt):
             if "." in value:
                 decimals = value.split(".")[1]
                 if len(decimals) > 2:
-                    print("❌ Maximal 2 Nachkommastellen erlaubt.")
+                    print("Maximal 2 Nachkommastellen erlaubt.")
                     continue
 
             if amount < 0:
-                print("❌ Bitte eine positive Zahl eingeben.")
+                print("Bitte eine positive Zahl eingeben.")
                 continue
 
             return amount
 
         except ValueError:
-            print("❌ Ungültige Zahl!")
+            print("Ungültige Zahl!")
         except IndexError:
-            print("❌ Ungültiges Zahlenformat!")
+            print("Ungültiges Zahlenformat!")
 
 def input_category(prompt, allowed_categories):
     """
@@ -68,6 +68,6 @@ def input_category(prompt, allowed_categories):
         if value in allowed_categories:
             return value
         else:
-            print("❌ Kategorie nicht erlaubt! Bitte erneut eingeben.")
+            print("Kategorie nicht erlaubt! Bitte erneut eingeben.")
 
 
