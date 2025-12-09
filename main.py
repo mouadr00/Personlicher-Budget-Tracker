@@ -73,7 +73,7 @@ def handle_choice(choice, data, filename):
         print("Daten gespeichert. Programm wird beendet...")
         return True 
     else:
-        print:("Ungültige Eingabe. Bitte 1-8 wählen.")
+        print("Ungültige Eingabe. Bitte 1-8 wählen.")
     return False
 
 
