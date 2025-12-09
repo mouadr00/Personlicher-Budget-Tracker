@@ -7,7 +7,7 @@ def main():
     - Budgetdaten laden
     - Hauptmenü in Schleife anzeigen
     """
-  print("Willkommen beim Persönlichen Budget-Tracker!")
+    print("Willkommen beim Persönlichen Budget-Tracker!")
 
 # Login (Passwortprüfung)
 login()
