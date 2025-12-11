@@ -13,8 +13,6 @@ from data_reports import (
 )
 from validationfunctions import input_date, load_categories
 
-allowed_categories = load_categories("kategorien.csv") 
-
 def clear_screen():
     """Bildschirm löschen (plattformunabhängig)"""
     os.system("cls" if os.name == "nt" else "clear")
@@ -86,6 +84,9 @@ def parse_month_year(date_str):
     
 
 def main():
+
+    allowed_categories = load_categories()
+    
     """
     Hauptfunktion:
     - Login ausführen
