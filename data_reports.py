@@ -16,9 +16,6 @@ def create_default_categories(filename: str = "kategorien.csv") -> list[str]:
         "Transport",
         "Sparen",
         "Schulden",
-        "Kleidung",
-        "Gesundheit",
-        "Haushalt",
         "Sonstiges"   
     ]
  
