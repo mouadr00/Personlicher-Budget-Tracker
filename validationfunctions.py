@@ -72,12 +72,56 @@ def input_category(prompt, allowed_categories):
         else:
             print("Kategorie nicht erlaubt! Bitte erneut eingeben.")
 
-def load_categories(filepath: str) -> list[str]:
-    """Lädt erlaubte Kategorien aus einer CSV-Datei."""
+def create_default_categories(filename: str = "kategorien.csv") -> list[str]:
+    """
+    Erstellt die Datei kategorien.csv mit Standardkategorien,
+    wenn sie nicht existiert.
+    """
+    default_categories = [
+        "Lebensmittel",
+        "Gehalt",
+        "Miete",
+        "Versicherung",
+        "Freizeit",
+        "Transport",
+        "Sparen",
+        "Schulden",
+        "Sonstiges"   
+    ]
+ 
+    with open(filename, mode="w", encoding="utf-8", newline="") as f:
+        import csv
+        writer = csv.writer(f, delimiter=";")
+        writer.writerow(["Kategorie"])
+        for cat in default_categories:
+            writer.writerow([cat])
+ 
+    print(f"{filename} wurde mit Standardkategorien erstellt.")
+
+    return default_categories
+
+def load_categories(filename: str = "kategorien.csv") -> list[str]:
+    """
+    Liest die Kategorien aus kategorien.csv.
+    Falls die Datei fehlt, wird sie automatisch mit Standardwerten erstellt.
+    """
+    kategorien: list[str] = []
     try:
-        with open(filepath, newline="", encoding="utf-8") as f:
-            reader = csv.reader(f)
-            return [row[0] for row in reader if row]
+        with open(filename, mode="r", encoding="utf-8", newline="") as f:
+            import csv
+            reader = csv.reader(f, delimiter=";")
+            for row in reader:
+                if not row:
+                    continue
+                name = row[0].strip()
+                
+                # Kopfzeile "Kategorie" überspringen
+                if name.lower() == "kategorie" or name == "":
+                    continue
+                kategorien.append(name)
     except FileNotFoundError:
-        print(f" Datei nicht gefunden: {filepath}")
-        return []
+        
+        print(f"Warnung: {filename} nicht gefunden. Datei wird neu erstellt.")
+        return create_default_categories(filename)
+ 
+    return kategorien
