@@ -1,5 +1,7 @@
 from datetime import datetime
 
+import csv
+
 # ============================================
 #   Validierungsfunktionen
 # ============================================
@@ -70,4 +72,12 @@ def input_category(prompt, allowed_categories):
         else:
             print("Kategorie nicht erlaubt! Bitte erneut eingeben.")
 
-
+def load_categories(filepath: str) -> list[str]:
+    """Lädt erlaubte Kategorien aus einer CSV-Datei."""
+    try:
+        with open(filepath, newline="", encoding="utf-8") as f:
+            reader = csv.reader(f)
+            return [row[0] for row in reader if row]
+    except FileNotFoundError:
+        print(f" Datei nicht gefunden: {filepath}")
+        return []
