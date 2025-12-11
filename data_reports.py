@@ -59,9 +59,6 @@ def load_categories(filename: str = "kategorien.csv") -> list[str]:
  
     return kategorien
 
- 
- 
-
 # Dateifunktionen
 
 def get_budget_filename(month: int, year: int) -> str:
