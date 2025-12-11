@@ -46,7 +46,7 @@ def load_categories(filename: str = "kategorien.csv") -> list[str]:
                 name = row[0].strip()
                 
                 # Kopfzeile "Kategorie" überspringen
-                if name.lower() == "kategorie" or name == "":
+                if name == "":
                     continue
                 kategorien.append(name)
     except FileNotFoundError:
