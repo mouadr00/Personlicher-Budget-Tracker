@@ -54,7 +54,7 @@ def show_summary(data: list[dict]):
     income = sum(entry["Betrag"] for entry in data if entry["Betrag"] > 0)
     expenses = sum(entry["Betrag"] for entry in data if entry["Betrag"] < 0)
 
-    print("=== Zusammenfassung ===")
+    print("\n=== Zusammenfassung ===")
     print(f"Einnahmen: {income:.2f} CHF")
     print(f"Ausgaben:  {expenses:.2f} CHF")
     print(f"Saldo: {income + expenses:.2f} CHF\n")
@@ -62,34 +62,37 @@ def show_summary(data: list[dict]):
 
 def show_largest_category(data: list[dict]):
     """Findet die Kategorie mit den höchsten Gesamtausgaben."""
-    category_totals = defaultdict(float)
+    expenses = [e for e in data if e ["Typ"] == "Ausgabe"]
 
-    for entry in data:
-        betrag = entry["Betrag"]
-        if betrag < 0:
-            category_totals[entry["Kategorie"]] += betrag
+    if not expenses:
+        print("Keine Ausgaben vorhanden.")
+        return
+    
+    # Summiere Ausgaben nach Kategorie 
+    category_totals = {}
+    for entry in expenses:
+        category = entry["Kategorie"]
+        amount = -entry["Betrag"] # Betrag positiv machen (war negativ gespeichert)
+        category_totals[category] = category_totals.get(category, 0) + amount
 
-        if not category_totals:
-            print("Keine Ausgaben vorhanden.")
-            return
-        # Grösste Ausgabenkategorie (Betragmässig am meisten Minus)
-        largest = min(category_totals, key=category_totals.get)
-
-        print("=== Kategorie mit höchsten Ausgaben ===")
-        print(f"{largest}: {category_totals[largest]:.2f} CHF\n")
+    # Kategorie mit den höchstens Gesamtausgaben finden
+    largest = max(category_totals, key=category_totals.get)
+    
+    print("=== Kategorie mit höchsten Ausgaben ===")
+    print(f"{largest}: {category_totals[largest]:.2f} CHF\n")
 
 
 def show_month_entries(data: list[dict], month: int, year: int):
     """Filtert Einträge nach Monat und Jahr und gibt sie tabellarisch aus."""
-    filtered = []
-    for e in data:
-        m, y = parse_month_year(e["Datum"])
-        if m == month and y == year:
-            filtered.append(e)
+    filtered = [
+        entry for entry in data
+        if parse_month_year(entry["Datum"]) == (month, year)
+    ]
 
     if not filtered:
         print("Keine Einträge für diesen Monat.")
         return    
+    
     print(f"=== Einträge für {month:02d}/{year} ===")
     print(f"{'Datum':10} {'Typ':10} {'Kategorie':15} {'Betrag':>10}")
     print("-" * 50)
@@ -116,6 +119,3 @@ def test_functions():
     show_summary(loaded)
     show_largest_category(loaded)
     show_month_entries(loaded, 5, 2024)
-
-if __name__ == "__main__":
-    test_functions()
