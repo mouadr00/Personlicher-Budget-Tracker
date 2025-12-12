@@ -1,7 +1,7 @@
-## **Persönlicher Budget Tracker**
+## Persönlicher Budget Tracker
 
 
-## Eingaben, Validierung und Buchungen
+**Eingaben, Validierung und Buchungen**
 
 Dieser Teil des Projekts deckt die komplette Eingabelogik für Einnahmen und Ausgaben ab und stellt sicher, dass nur gültige Daten gespeichert werden. Der Fokus liegt auf robusten Benutzereingaben für Datum, Betrag und Kategorie sowie auf dem Erstellen und Speichern einzelner Buchungen in der passenden Monatsdatei.
 
