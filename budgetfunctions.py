@@ -33,7 +33,7 @@ def add_income(data, allowed_categories):
         "Datum": date,
         "Typ": "Einnahme",
         "Kategorie": category,
-        "Betrag": amount # immer positiv speichern 
+        "Betrag": abs(amount) # immer positiv speichern 
     }
    
     data.append(entry)
@@ -68,7 +68,7 @@ def add_expense(data, allowed_categories):
         "Datum": date,
         "Typ": "Ausgabe",
         "Kategorie": category,
-        "Betrag": amount # immer negativ speichern 
+        "Betrag": -abs(amount) # immer negativ speichern 
     }
     data.append(entry)
     save_data(filename, data)
