@@ -32,7 +32,7 @@ def show_menu():
     print("8. Programm beenden\n")
 
 
-def handle_choice(choice, data, filename): 
+def handle_choice(choice, data, month, year): 
     """
     Verarbeitet die Menüwahl.
     Gibt True zurück, wenn das Programm beendet werden soll.
@@ -46,7 +46,12 @@ def handle_choice(choice, data, filename):
         add_expense(data, allowed_categories)
     elif choice == "3":
         show_summary(data)
+        filename = get_budget_filename(month, year)
+        data = load_data(filename)
+        show_summary(data)
     elif choice == "4":
+        filename = get_budget_filename(month, year)
+        data = load_data(filename)
         show_largest_category(data)
     elif choice == "5": 
         try:
@@ -62,11 +67,15 @@ def handle_choice(choice, data, filename):
         except ValueError:
             print("Ungültiges Datumsformat. Bitte TT.MM.JJJJ verwenden.")
     elif choice == "6":
+        filename = get_budget_filename(month, year)
+        data = load_data(filename)
         save_data(filename, data)
         print("Budgetplan gespeichert.")
     elif choice == "7":
         change_password()
     elif choice == "8":
+        filename = get_budget_filename(month, year)
+        data = load_data(filename)
         # vor dem Beenden speichern
         save_data(filename, data) 
         print("Daten gespeichert. Programm wird beendet...")
