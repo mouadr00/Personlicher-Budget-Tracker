@@ -1,5 +1,6 @@
 ## Persönlicher Budget Tracker
 
+Ein konsolenbasiertes Python-Programm zur Verwaltung persönlicher Finanzen. Benutzer können passwortgeschützt Einnahmen und Ausgaben verwalten, monatliche Statistiken einsehen und den Budgetplan speichern. Das Projekt wurde im Rahmen eines Assessments nach didaktischen Vorgaben umgesetzt. 
 
 **Eingaben, Validierung und Buchungen**
 
@@ -82,3 +83,17 @@ data = data_reports1.load_data(filename)
 # Berichte anzeigen
 data_reports1.show_summary(data)
 data_reports1.show_largest_category(data)
+
+# Projektstruktur
+personlicher-budget-tracker/
+│
+├── main.py                  # Programmstart, Menü, Steuerlogik
+├── login.py                 # Passwort-Handling, Login, Hashing
+├── budgetfunctions.py       # Eingaben (Einnahmen, Ausgaben)
+├── data_reports.py          # Auswertungen und Monatsanzeigen
+├── validationfunctions.py   # Prüfung von Datum, Betrag, Kategorie
+│
+├── kategorien.csv           # Liste gültiger Kategorien
+├── passwort.csv             # Passwort (verschlüsselt)
+├── budget_2025_12.csv       # Beispielhafte Monatsdatei
+└── README.md                # Diese Datei
