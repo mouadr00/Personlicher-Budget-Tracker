@@ -4,7 +4,7 @@ Ein konsolenbasiertes Python-Programm zur Verwaltung persönlicher Finanzen. Ben
 
 ---
 
-## Projektbeschreibung
+### Projektbeschreibung
 
 Der **Persönliche Budget-Tracker** ermöglicht es Benutzern ihre monatlichen Einnahmen und Ausgaben übersichtlich zu erfassen, auszuwerten und in CSV-Dateien zu speichern.
 
@@ -13,7 +13,7 @@ Die Daten werden **monatsweise** gespeichert (z.B. 'budget_2025_12.csv'), wodurc
 
 ---
 
-## Motivation
+### Motivation
 
 Finanzmanagement ist ein zentrales Alltagsthema, insbesondere für **Studierende und Berufseinsteiger**.
 Viele möchten ihre Ausgaben im Blick behalten, ohne komplexe Software oder externe Tools zu nutzen. 
@@ -50,7 +50,7 @@ Dieses Projekt bietet:
 
 ---
 
-## Verwendete Python-Konzepte
+### Verwendete Python-Konzepte
 
 - **Datentypen:** 'str', 'int', 'float', 'list', 'dict'
 - **Kontrollstrukturen:** 'if / elif / else', 'for', 'while'
@@ -62,7 +62,7 @@ Dieses Projekt bietet:
 
 ---
 
-## Projektstruktur
+### Projektstruktur
 
 personlicher-budget-tracker/
 
@@ -87,13 +87,13 @@ personlicher-budget-tracker/
 
 ---
 
-## Installation & Voraussetzungen
+### Installation & Voraussetzungen
 
 *   Python 3.x
 *   Keine externen Bibliotheken erforderlich
 
 
-# Eingaben, Validierung und Buchungen
+## Eingaben, Validierung und Buchungen
 
 ## Benutzereingaben
 
