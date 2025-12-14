@@ -115,7 +115,7 @@ Alle Eingaben werden geprüft und fehlerhafte Eingaben abgefangen.
 
 --
 
-##Teamarbeit
+## Teamarbeit
 - Person 1: Login-System, Programmstart, Menüführung
 - Person 2: Einnahmen/Ausgaben, CSV-Speicherung
 - Person 3: Auswertungen, Kategorien, Monatsübersichten
