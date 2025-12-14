@@ -92,30 +92,17 @@ personlicher-budget-tracker/
 *   Python 3.x
 *   Keine externen Bibliotheken erforderlich
 
-
 ## Eingaben, Validierung und Buchungen
 
-## Benutzereingaben
+### Eingaben
+Einnahmen und Ausgaben werden interaktiv über die Konsole erfasst. Dabei werden Datum, Kategorie und Betrag abgefragt. Wird kein Datum eingegeben, verwendet das System automatisch das aktuelle Datum. Die Kategorie wird aus einer vorgegebenen Liste ausgewählt, um eine einheitliche Erfassung zu gewährleisten.
 
-Die Anwendung erfasst Einnahmen und Ausgaben über eine interaktive Benutzereingabe. Dabei werden Datum, Kategorie und Betrag schrittweise abgefragt. Das Datum wird im Format **TT.MM.JJJJ** eingegeben. Wird kein Datum angegeben, verwendet das System automatisch das aktuelle Datum. Die Kategorie wird über eine Textauswahl eingegeben, wobei dem Benutzer die erlaubten Kategorien angezeigt werden.
+### Validierung
+Alle Eingaben werden vor der Verarbeitung geprüft. Datumsangaben müssen dem Format **TT.MM.JJJJ** entsprechen. Beträge müssen numerisch sein und dürfen maximal zwei Nachkommastellen enthalten. Kategorien werden gegen die erlaubte Kategorienliste geprüft. Ungültige Eingaben werden abgefangen und erneut abgefragt.
 
-Die Eingabefunktionen sind bewusst einfach gehalten und dienen ausschliesslich dazu, die benötigten Werte vom Benutzer entgegenzunehmen. Die eigentliche Prüfung der Eingaben erfolgt in separaten Validierungsfunktionen.
+### Buchungen
+Nach erfolgreicher Eingabe und Validierung werden Einnahmen und Ausgaben als einzelne Buchungen gespeichert. Anhand des Datums wird der passende Monat ermittelt und die entsprechende Monatsdatei geladen. Einnahmen werden als positive Beträge gespeichert, Ausgaben als negative. Diese Struktur ermöglicht einfache und konsistente Auswertungen.
 
-## Validierung der Eingaben
-
-Für die Validierung der Benutzereingaben werden eigenständige Funktionen eingesetzt. Datumsangaben werden auf das korrekte Format geprüft. Beträge müssen numerisch sein, dürfen nicht negativ eingegeben werden und sind auf maximal zwei Nachkommastellen begrenzt. Kategorien werden gegen eine vordefinierte Liste erlaubter Kategorien geprüft.
-
-Ungültige Eingaben werden abgefangen, und der Benutzer wird zur erneuten Eingabe aufgefordert. Dadurch wird sichergestellt, dass nur gültige und konsistente Daten an die Buchungslogik weitergegeben werden.
-
-## Buchung von Einnahmen und Ausgaben
-
-Nach erfolgreicher Eingabe und Validierung werden Einnahmen und Ausgaben als einzelne Buchungen verarbeitet. Aus dem eingegebenen Datum werden automatisch Monat und Jahr bestimmt, um die passende Monatsdatei zu ermitteln. Bestehende Einträge dieses Monats werden geladen, der neue Eintrag wird ergänzt und anschliessend wieder gespeichert.
-
-Einnahmen werden stets als positive Beträge gespeichert. Ausgaben werden konsequent als negative Werte abgelegt. Diese einheitliche Struktur vereinfacht spätere Auswertungen wie Saldo, Gesamtsummen oder kategoriebasierte Statistiken.
-
-### Struktur und Abgrenzung
-
-Die klare Trennung zwischen Benutzereingabe, Validierung und Buchungslogik erhöht die Verständlichkeit des Codes und erleichtert spätere Erweiterungen. Jede Funktion hat eine klar definierte Aufgabe, wodurch das System robust und wartbar bleibt.
 
 ## Budget-Daten-Analyse-Skript
 
