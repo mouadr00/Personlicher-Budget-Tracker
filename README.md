@@ -1,4 +1,4 @@
-## Persönlicher Budget Tracker
+# Persönlicher Budget Tracker
 
 Ein konsolenbasiertes Python-Programm zur Verwaltung persönlicher Finanzen. Benutzer können passwortgeschützt Einnahmen und Ausgaben verwalten, monatliche Statistiken einsehen und den Budgetplan speichern. Das Projekt wurde im Rahmen eines Assessments nach didaktischen Vorgaben umgesetzt. 
 
@@ -17,31 +17,31 @@ Beim Speichern einer Buchung werden aus dem eingegebenen Datum der Monat und das
 
 # Budget-Daten-Analyse-Skript
 
-# Kurzbeschreibung
+**Kurzbeschreibung**
 
 Dieses Python-Skript (`data_reports1.py`) dient zur Verwaltung und Analyse von Budgetdaten, die im CSV-Format gespeichert sind. Es ermöglicht das Laden, Speichern und Auswerten von Finanztransaktionen (Einnahmen und Ausgaben).
 
-# Funktionen
+**Funktionen**
 
 Das Skript bietet folgende Hauptfunktionen:
 
-# Dateifunktionen
+**Dateifunktionen**
 
 **`get_budget_filename(month, year)`**: Erzeugt einen standardisierten Dateinamen (z. B. `budget_2024_05.csv`).
 **`load_data(filename)`**: Liest eine CSV-Datei ein. Die Datei muss die Spalten `Datum`, `Typ`, `Kategorie` und `Betrag` enthalten. Der `Betrag` wird automatisch in eine Fliesskommazahl umgewandelt.
 **`save_data(filename, data)`**: Speichert eine Liste von Transaktionen in eine CSV-Datei.
 
-# Auswertungsfunktionen
+**Auswertungsfunktionen**
 
 **`show_summary(data)`**: Berechnet die Summe aller Einnahmen (positive Beträge) und Ausgaben (negative Beträge) sowie den aktuellen Saldo und gibt diese auf der Konsole aus.
 **`show_largest_category(data)`**: Ermittelt die Kategorie mit den höchsten Gesamtausgaben und zeigt diese an.
 **`show_month_entries(data, month, year)`**: Filtert die Transaktionen nach einem bestimmten Monat und Jahr und gibt diese tabellarisch aus.
 
-# Hilfsfunktionen
+**Hilfsfunktionen**
 
 **`parse_month_year(datum_str)`**: Extrahiert Monat und Jahr aus einem Datumsstring im Format `TT.MM.JJJJ`.
 
-# Datenstruktur
+**Datenstruktur**
 
 Die CSV-Dateien und internen Datenstrukturen verwenden folgendes Format:
 
@@ -50,16 +50,16 @@ Die CSV-Dateien und internen Datenstrukturen verwenden folgendes Format:
 **Kategorie**: String (z.B. "Essen", "Gehalt", "Transport")
 **Betrag**: Float (Positiv für Einnahmen, Negativ für Ausgaben)
 
-# Installation & Voraussetzungen
+**Installation & Voraussetzungen**
 
 *   Python 3.x
 *   Keine externen Bibliotheken erforderlich (nutzt nur Standard-Bibliotheken `csv`, `collections`, `datetime`).
 
-# Verwendung
+**Verwendung**
 
 Das Skript kann direkt ausgeführt werden, um die integrierte Testfunktion zu starten, oder als Modul importiert werden.
 
-# Direktes Ausführen (Demo)
+**Direktes Ausführen (Demo)**
 
 Führe das Skript in der Konsole aus:
 
