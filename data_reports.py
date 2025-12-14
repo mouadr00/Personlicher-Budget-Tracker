@@ -2,6 +2,53 @@ import csv
 from collections import defaultdict
 from datetime import datetime
 
+#   Kategorien (CSV laden / erstellen)
+
+def create_default_categories(filename: str = "kategorien.csv") -> list[str]:
+    default_categories = [
+        "Lebensmittel",
+        "Gehalt",
+        "Miete",
+        "Versicherung",
+        "Freizeit",
+        "Transport",
+        "Sparen",
+        "Schulden",
+        "Sonstiges"
+    ]
+
+    with open(filename, mode="w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f, delimiter=";")
+        writer.writerow(["Kategorie"])
+        for cat in default_categories:
+            writer.writerow([cat])
+
+    print(f"{filename} wurde mit Standardkategorien erstellt.")
+    return default_categories
+
+
+def load_categories(filename: str = "kategorien.csv") -> list[str]:
+    kategorien = []
+
+    try:
+        with open(filename, mode="r", encoding="utf-8-sig", newline="") as f:
+            reader = csv.reader(f, delimiter=";")
+            for row in reader:
+                if not row:
+                    continue
+
+                name = row[0].strip()
+                if name.lower() == "kategorie" or name == "":
+                    continue
+
+                kategorien.append(name)
+
+    except FileNotFoundError:
+        print(f"Warnung: {filename} nicht gefunden. Datei wird neu erstellt.")
+        return create_default_categories(filename)
+
+    return kategorien
+
 # Dateifunktionen
 
 def get_budget_filename(month: int, year: int) -> str:
