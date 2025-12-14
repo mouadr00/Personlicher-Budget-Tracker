@@ -88,12 +88,20 @@ data_reports1.show_largest_category(data)
 personlicher-budget-tracker/
 │
 ├── main.py                  # Programmstart, Menü, Steuerlogik
+
 ├── login.py                 # Passwort-Handling, Login, Hashing
+
 ├── budgetfunctions.py       # Eingaben (Einnahmen, Ausgaben)
+
 ├── data_reports.py          # Auswertungen und Monatsanzeigen
+
 ├── validationfunctions.py   # Prüfung von Datum, Betrag, Kategorie
+
 │
 ├── kategorien.csv           # Liste gültiger Kategorien
+
 ├── passwort.csv             # Passwort (verschlüsselt)
+
 ├── budget_2025_12.csv       # Beispielhafte Monatsdatei
+
 └── README.md                # Diese Datei
