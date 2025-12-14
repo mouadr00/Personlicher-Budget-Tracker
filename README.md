@@ -17,11 +17,11 @@ Beim Speichern einer Buchung werden aus dem eingegebenen Datum der Monat und das
 
 # Budget-Daten-Analyse-Skript
 
-### Kurzbeschreibung
+## Kurzbeschreibung
 
 Dieses Python-Skript (`data_reports1.py`) dient zur Verwaltung und Analyse von Budgetdaten, die im CSV-Format gespeichert sind. Es ermöglicht das Laden, Speichern und Auswerten von Finanztransaktionen (Einnahmen und Ausgaben).
 
-**Funktionen**
+## Funktionen
 
 Das Skript bietet folgende Hauptfunktionen:
 
