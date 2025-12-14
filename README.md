@@ -133,7 +133,7 @@ personlicher-budget-tracker/
 
 Die Aufgaben wurden klar getrennt und in separaten Modulen umgesetzt.
 
---
+---
 
 ## Eingaben, Validierung und Buchungen
 
