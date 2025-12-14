@@ -25,6 +25,35 @@ Dieses Projekt bietet:
 
 ---
 
+## Programmstart und Hauptmenü
+
+Nach dem Start des Programms wird der Benutzer begrüsst und zur Anmeldung aufgefordert. Dazu muss das festgelegte Passwort eingegeben werden. Erst nach einer erfolgreichen Anmeldung wird der Zugriff auf die Anwendung freigegeben. Bei einer falschen Eingabe wird der Benutzer erneut zur Passworteingabe aufgefordert.
+
+Nach dem Login lädt das Programm automatisch die benötigten Daten, darunter die erlaubten Kategorien sowie die Budgetdaten des aktuellen Monats. Falls benötigte Dateien noch nicht existieren, werden diese automatisch erstellt, sodass das Programm sofort einsatzbereit ist.
+
+Anschliessend wird das Hauptmenü angezeigt. Folgende Funktionen werden angezeigt:  
+
+
+**1.** Einnahme hinzufügen
+
+**2.** Ausgabe hinzufügen
+
+**3.** Verfügbares Budget anzeigen
+
+**4.** Grösste Ausgabenkategorie anzeigen
+
+**5.** Monatliche Einträge anzeigen
+
+**6.** Budgetplan speichern
+
+**7.** Passwort ändern
+
+**8.** Programm beenden 
+
+Über dieses Menü wählt der Benutzer die gewünschte Funktion aus, indem er die entsprechende Nummer eingibt.. Es besteht die Möglichkeit, eine Einnahme hinzuzufügen oder eine Ausgabe zu erfassen. Alle Eingaben werden geprüft und fehlerhafte Eingaben werden abgefangen. Zusätzlich kann das aktuell verfügbare Budget angezeigt werden, ebenso wie die Kategorie mit den höchsten Ausgaben. Der Benutzer kann sich ausserdem alle Einträge eines bestimmten Monats anzeigen lassen. Weiter bietet das Hauptmenü die Möglichkeit, den aktuellen Budgetplan zu speichern oder das Passwort zu ändern. Zum Abschluss kann das Programm über das Menü bewusst beendet werden. Nach jeder ausgeführten Aktion kehrt die Anwendung automatisch wieder zum Hauptmenü zurück, bis der Benutzer das Programm verlässt.
+
+---
+
 ## Hauptfunktion
 
 - **Passwortgeschützter Login**
@@ -47,6 +76,13 @@ Dieses Projekt bietet:
 - **CSV-Speicherung**
   - Automatische Erstellung von Monatsdateien ('budget_JAHR_MONAT.csv')
   - CSV-Format kompatibel mit Excel
+
+---
+
+### Installation & Voraussetzungen
+
+*   Python 3.x
+*   Keine externen Bibliotheken erforderlich
 
 ---
 
@@ -87,40 +123,14 @@ personlicher-budget-tracker/
 
 ---
 
-### Installation & Voraussetzungen
-
-*   Python 3.x
-*   Keine externen Bibliotheken erforderlich
-
-## Bedienung
-Nach dem Login erscheint ein Menü mit folgenden Optionen:
-
-**1.** Einnahme hinzufügen
-
-**2.** Ausgabe hinzufügen
-
-**3.** Verfügbares Budget anzeigen
-
-**4.** Grösste Ausgabenkategorie anzeigen
-
-**5.** Monatliche Einträge anzeigen
-
-**6.** Budgetplan speichern
-
-**7.** Passwort ändern
-
-**8.** Programm beenden 
-
-Alle Eingaben werden geprüft und fehlerhafte Eingaben abgefangen. 
-
---
-
-## Teamarbeit
+### Teamarbeit
 - Person 1: Login-System, Programmstart, Menüführung
 - Person 2: Einnahmen/Ausgaben, CSV-Speicherung
 - Person 3: Auswertungen, Kategorien, Monatsübersichten
 
 Die Aufgaben wurden klar getrennt und in separaten Modulen umgesetzt.
+
+--
 
 ## Eingaben, Validierung und Buchungen
 
