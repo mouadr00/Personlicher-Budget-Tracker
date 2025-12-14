@@ -10,8 +10,9 @@ from data_reports import (
     show_summary,
     show_largest_category,
     show_month_entries,
+    load_categories
 )
-from validationfunctions import input_date, load_categories
+from validationfunctions import input_date
 
 allowed_categories = load_categories() 
 
