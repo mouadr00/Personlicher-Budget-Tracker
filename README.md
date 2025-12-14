@@ -96,12 +96,19 @@ personlicher-budget-tracker/
 Nach dem Login erscheint ein Menü mit folgenden Optionen:
 
 **1.** Einnahme hinzufügen
+
 **2.** Ausgabe hinzufügen
+
 **3.** Verfügbares Budget anzeigen
+
 **4.** Grösste Ausgabenkategorie anzeigen
+
 **5.** Monatliche Einträge anzeigen
+
 **6.** Budgetplan speichern
+
 **7.** Passwort ändern
+
 **8.** Programm beenden 
 
 Alle Eingaben werden geprüft und fehlerhafte Eingaben abgefangen. 
