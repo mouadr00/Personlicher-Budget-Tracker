@@ -69,22 +69,22 @@ python data_reports1.py
 
 Dies führt die Funktion `test_functions()` aus, welche Beispieldaten erstellt, speichert, wieder lädt und die Berichte anzeigt.
 
-# Als Modul importieren
+## Als Modul importieren
 
 
 import data_reports1
 
-# Dateinamen bestimmen
+## Dateinamen bestimmen
 filename = data_reports1.get_budget_filename(5, 2024)
 
-# Daten laden
+## Daten laden
 data = data_reports1.load_data(filename)
 
-# Berichte anzeigen
+## Berichte anzeigen
 data_reports1.show_summary(data)
 data_reports1.show_largest_category(data)
 
-# Projektstruktur
+## Projektstruktur
 
 personlicher-budget-tracker/
 
