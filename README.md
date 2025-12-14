@@ -89,6 +89,7 @@ data_reports1.show_largest_category(data)
 personlicher-budget-tracker/
 │
 
+
 ├── main.py                  # Programmstart, Menü, Steuerlogik
 
 ├── login.py                 # Passwort-Handling, Login, Hashing
