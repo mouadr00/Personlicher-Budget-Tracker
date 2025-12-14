@@ -85,6 +85,7 @@ data_reports1.show_summary(data)
 data_reports1.show_largest_category(data)
 
 # Projektstruktur
+
 personlicher-budget-tracker/
 │
 ├── main.py                  # Programmstart, Menü, Steuerlogik
@@ -98,6 +99,7 @@ personlicher-budget-tracker/
 ├── validationfunctions.py   # Prüfung von Datum, Betrag, Kategorie
 
 │
+
 ├── kategorien.csv           # Liste gültiger Kategorien
 
 ├── passwort.csv             # Passwort (verschlüsselt)
