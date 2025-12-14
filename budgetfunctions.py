@@ -18,8 +18,8 @@ def add_income(data, allowed_categories):
     amount = input_amount("Betrag (+): ")
 
     # Monat/Jahr aus Datum extrahieren
-        dt = datetime.strptime(date, "%d.%m.%Y")
-        month, year = dt.month, dt.year
+    dt = datetime.strptime(date, "%d.%m.%Y")
+    month, year = dt.month, dt.year
 
 
     # Daten für ensprechenden Monat laden
