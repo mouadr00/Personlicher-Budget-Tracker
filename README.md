@@ -93,26 +93,37 @@ personlicher-budget-tracker/
 *   Keine externen Bibliotheken erforderlich
 
 
-## Eingaben, Validierung und Buchungen
+# Eingaben, Validierung und Buchungen
 
-Dieser Teil des Projekts deckt die komplette Eingabelogik für Einnahmen und Ausgaben ab und stellt sicher, dass nur gültige Daten gespeichert werden. Der Fokus liegt auf robusten Benutzereingaben für Datum, Betrag und Kategorie sowie auf dem Erstellen und Speichern einzelner Buchungen in der passenden Monatsdatei.
+## Benutzereingaben
 
-Beim Hinzufügen einer Einnahme oder Ausgabe werden Datum, Kategorie und Betrag interaktiv abgefragt. Das Datum wird im Format **TT.MM.JJJJ** erwartet. Bei leerer Eingabe wird automatisch das aktuelle Datum verwendet. Der Betrag wird als Zahl geprüft, unterstützt sowohl Komma als auch Punkt als Dezimaltrennzeichen und erlaubt maximal zwei Nachkommastellen. Kategorien werden gegen eine Liste erlaubter Kategorien geprüft (`allowed_categories`), sodass keine ungültigen oder frei erfundenen Kategorien gespeichert werden können.
+Die Anwendung erfasst Einnahmen und Ausgaben über eine interaktive Benutzereingabe. Dabei werden Datum, Kategorie und Betrag schrittweise abgefragt. Das Datum wird im Format **TT.MM.JJJJ** eingegeben. Wird kein Datum angegeben, verwendet das System automatisch das aktuelle Datum. Die Kategorie wird über eine Textauswahl eingegeben, wobei dem Benutzer die erlaubten Kategorien angezeigt werden.
 
-Die erlaubten Kategorien werden über `load_categories()` aus der Datei **kategorien.csv** geladen. Falls diese Datei nicht existiert, wird sie automatisch mit Standardkategorien über `create_default_categories()` erstellt. Dadurch bleibt das System flexibel, da Kategorien im Nachhinein direkt in der CSV-Datei erweitert oder angepasst werden können und beim nächsten Programmstart automatisch übernommen werden.
+Die Eingabefunktionen sind bewusst einfach gehalten und dienen ausschliesslich dazu, die benötigten Werte vom Benutzer entgegenzunehmen. Die eigentliche Prüfung der Eingaben erfolgt in separaten Validierungsfunktionen.
 
-Beim Speichern einer Buchung werden aus dem eingegebenen Datum der Monat und das Jahr extrahiert. Anschliessend wird die passende Monatsdatei, zum Beispiel `budget_2025_12.csv`, geladen, der neue Eintrag als Dictionary hinzugefügt und die Datei wieder gespeichert. Einnahmen werden als positive Beträge gespeichert. Ausgaben werden im Datensatz als negative Werte abgelegt, damit spätere Auswertungen wie Saldo, Summen und Kategorien einfach berechnet werden können.
-  
+## Validierung der Eingaben
 
+Für die Validierung der Benutzereingaben werden eigenständige Funktionen eingesetzt. Datumsangaben werden auf das korrekte Format geprüft. Beträge müssen numerisch sein, dürfen nicht negativ eingegeben werden und sind auf maximal zwei Nachkommastellen begrenzt. Kategorien werden gegen eine vordefinierte Liste erlaubter Kategorien geprüft.
 
+Ungültige Eingaben werden abgefangen, und der Benutzer wird zur erneuten Eingabe aufgefordert. Dadurch wird sichergestellt, dass nur gültige und konsistente Daten an die Buchungslogik weitergegeben werden.
 
-## Budget-Daten-Analyse-Skript
+## Buchung von Einnahmen und Ausgaben
 
-### Kurzbeschreibung
+Nach erfolgreicher Eingabe und Validierung werden Einnahmen und Ausgaben als einzelne Buchungen verarbeitet. Aus dem eingegebenen Datum werden automatisch Monat und Jahr bestimmt, um die passende Monatsdatei zu ermitteln. Bestehende Einträge dieses Monats werden geladen, der neue Eintrag wird ergänzt und anschliessend wieder gespeichert.
+
+Einnahmen werden stets als positive Beträge gespeichert. Ausgaben werden konsequent als negative Werte abgelegt. Diese einheitliche Struktur vereinfacht spätere Auswertungen wie Saldo, Gesamtsummen oder kategoriebasierte Statistiken.
+
+### Struktur und Abgrenzung
+
+Die klare Trennung zwischen Benutzereingabe, Validierung und Buchungslogik erhöht die Verständlichkeit des Codes und erleichtert spätere Erweiterungen. Jede Funktion hat eine klar definierte Aufgabe, wodurch das System robust und wartbar bleibt.
+
+# Budget-Daten-Analyse-Skript
+
+## Kurzbeschreibung
 
 Dieses Python-Skript (`data_reports1.py`) dient zur Verwaltung und Analyse von Budgetdaten, die im CSV-Format gespeichert sind. Es ermöglicht das Laden, Speichern und Auswerten von Finanztransaktionen (Einnahmen und Ausgaben).
 
-### Funktionen
+## Funktionen
 
 Das Skript bietet folgende Hauptfunktionen:
 
