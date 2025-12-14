@@ -24,7 +24,7 @@ def add_income(data, allowed_categories):
 
     # Daten für ensprechenden Monat laden
     filename = get_budget_filename(month, year)
-    month_data = load_data(filename)
+    data = load_data(filename)
 
     entry = {
         "Datum": date,
@@ -55,7 +55,7 @@ def add_expense(data, allowed_categories):
 
     # Daten für ensprechenden Monat laden
     filename = get_budget_filename(month, year)
-    month_data = load_data(filename)
+    data = load_data(filename)
 
     entry = {
         "Datum": date,
