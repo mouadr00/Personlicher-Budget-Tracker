@@ -108,6 +108,7 @@ def main():
 
     # Standardmässig: aktueller Monat / Jahr
     today = datetime.today()
+    month, year = today.month, today.year
     filename = get_budget_filename(today.month, today.year)
     # Daten aus Datei laden (load_data)
     data = load_data(filename)
@@ -116,7 +117,7 @@ def main():
     while True:
         show_menu()
         choice = input("Bitte Option wählen (1-8): ").strip()
-        if handle_choice(choice, data, filename):
+        if handle_choice(choice, data, month, year):
             # handle_choice gibt True zurück, wenn Programm beendet werden soll
             break
 
