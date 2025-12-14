@@ -50,7 +50,10 @@ Anschliessend wird das Hauptmenü angezeigt. Folgende Funktionen werden angezeig
 
 **8.** Programm beenden 
 
-Über dieses Menü wählt der Benutzer die gewünschte Funktion aus, indem er die entsprechende Nummer eingibt.. Es besteht die Möglichkeit, eine Einnahme hinzuzufügen oder eine Ausgabe zu erfassen. Alle Eingaben werden geprüft und fehlerhafte Eingaben werden abgefangen. Zusätzlich kann das aktuell verfügbare Budget angezeigt werden, ebenso wie die Kategorie mit den höchsten Ausgaben. Der Benutzer kann sich ausserdem alle Einträge eines bestimmten Monats anzeigen lassen. Weiter bietet das Hauptmenü die Möglichkeit, den aktuellen Budgetplan zu speichern oder das Passwort zu ändern. Zum Abschluss kann das Programm über das Menü bewusst beendet werden. Nach jeder ausgeführten Aktion kehrt die Anwendung automatisch wieder zum Hauptmenü zurück, bis der Benutzer das Programm verlässt.
+Über dieses Menü wählt der Benutzer die gewünschte Funktion aus, indem er die entsprechende Nummer eingibt. Es besteht die Möglichkeit, eine Einnahme hinzuzufügen oder eine Ausgabe zu erfassen. Alle Eingaben werden geprüft und fehlerhafte Eingaben werden abgefangen. 
+
+Zusätzlich kann das aktuell verfügbare Budget angezeigt werden, ebenso wie die Kategorie mit den höchsten Ausgaben. Der Benutzer kann sich ausserdem alle Einträge eines bestimmten Monats anzeigen lassen. Weiter bietet das Hauptmenü die Möglichkeit, den aktuellen Budgetplan zu speichern oder das Passwort zu ändern. Zum Abschluss kann das Programm über das Menü bewusst beendet werden. Nach jeder ausgeführten Aktion kehrt die Anwendung automatisch wieder zum Hauptmenü zurück, bis der Benutzer das Programm verlässt.
+
 
 ---
 
