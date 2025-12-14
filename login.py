@@ -50,7 +50,7 @@ def login():
     # Zur Sicherheit max. 3 Versuche.
     # Benutzer wird informiert, bevor das Programm beendet wird.
     print("LOGIN - Bitte geben Sie Ihr Passwort ein.")
-    for attempt in range(3):
+    for attempt in range(4):
         password = getpass.getpass("Passwort: ")
         if check_password(password):
             print("Login erfolgreich!\n")
