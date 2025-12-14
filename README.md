@@ -2,6 +2,97 @@
 
 Ein konsolenbasiertes Python-Programm zur Verwaltung persönlicher Finanzen. Benutzer können passwortgeschützt Einnahmen und Ausgaben verwalten, monatliche Statistiken einsehen und den Budgetplan speichern. Das Projekt wurde im Rahmen eines Assessments nach didaktischen Vorgaben umgesetzt. 
 
+---
+
+## Projektbeschreibung
+
+Der **Persönliche Budget-Tracker** ermöglicht es Benutzern ihre monatlichen Einnahmen und Ausgaben übersichtlich zu erfassen, auszuwerten und in CSV-Dateien zu speichern.
+
+Das Programm läuft vollständig in **Terminal** und verwendet eine menügesteuerte Benutzerführung.
+Die Daten werden **monatsweise** gespeichert (z.B. 'budget_2025_12.csv'), wodurch eine klare Trennung der Budgets gewährleistet ist.
+
+---
+
+## Motivation
+
+Finanzmanagement ist ein zentrales Alltagsthema, insbesondere für **Studierende und Berufseinsteiger**.
+Viele möchten ihre Ausgaben im Blick behalten, ohne komplexe Software oder externe Tools zu nutzen. 
+
+Dieses Projekt bietet:
+- einen **einfache, lokale Lösung**
+- einen **praxisnahen Anwendungsfall** für Python-Grundlagen
+- einen klaren Fokus auf **Logik, Struktur und Verständlichkeit**
+
+---
+
+## Hauptfunktion
+
+- **Passwortgeschützter Login**
+  - Passwort wird sicher als SHA-256-Hash gespeichert
+  - Maximal 3 Login-Versuche
+  - Passwortänderung über Menü möglich
+ 
+- **Einnahmen und Ausgaben erfassen**
+  - Einnahmen positiv, Ausgaben negativ gespeichert
+  - Kategorien werden validiert
+
+- **Monatliche Budgetübersicht**
+  - Anzeige aller Einträge für einen bestimmten Monat
+  - Automatisches Laden der passenden Monatsdatei
+ 
+- **Grösste Ausgabenkategorie**
+  - Analyse der Ausgaben pro Kategorie
+  - Anzeige der höchsten Gesamtausgaben
+ 
+- **CSV-Speicherung**
+  - Automatische Erstellung von Monatsdateien ('budget_JAHR_MONAT.csv')
+  - CSV-Format kompatibel mit Excel
+
+---
+
+## Verwendete Python-Konzepte
+
+- **Datentypen:** 'str', 'int', 'float', 'list', 'dict'
+- **Kontrollstrukturen:** 'if / elif / else', 'for', 'while'
+- **Funktionen:** Separate Funktionen pro Hauptaufgabe ('add_income()', 'add_expenses()', 'show_summary()', 'save_data()' usw.)
+- **Dateiverarbeitung:** 'open()', 'read()', 'write()', 'csv'-Modul
+- **Exception Handling:** 'try / except' für Eingabe- und Datei-Validierung
+- **String-Operationen:** Formatiere Tabellen- und Betragsausgabe
+- **Modularisierung:** Aufteilung in mehrere '.py'-Dateien
+
+---
+
+## Projektstruktur
+
+personlicher-budget-tracker/
+
+│
+
+
+├── main.py                  # Programmstart & Menülogik
+
+├── login.py                 # Passwort-Handling, Login, Hashing
+
+├── budgetfunctions.py       # Eingaben (Einnahmen, Ausgaben)
+
+├── data_reports.py          # Auswertungen & Speicherung
+
+├── validationfunctions.py   # Eingabenvalidierung
+
+├── kategorien.csv           # Liste gültiger Kategorien
+
+├── budget_YYYY_MM.csv       # Beispielhafte Monatsdatei
+
+└── Passwort.csv             # Gespeicherter Passwort-Hash
+
+---
+
+## Installation & Voraussetzungen
+
+*   Python 3.x
+*   Keine externen Bibliotheken erforderlich
+
+
 ## Eingaben, Validierung und Buchungen
 
 Dieser Teil des Projekts deckt die komplette Eingabelogik für Einnahmen und Ausgaben ab und stellt sicher, dass nur gültige Daten gespeichert werden. Der Fokus liegt auf robusten Benutzereingaben für Datum, Betrag und Kategorie sowie auf dem Erstellen und Speichern einzelner Buchungen in der passenden Monatsdatei.
@@ -50,10 +141,6 @@ Die CSV-Dateien und internen Datenstrukturen verwenden folgendes Format:
 **Kategorie**: String (z.B. "Essen", "Gehalt", "Transport")
 **Betrag**: Float (Positiv für Einnahmen, Negativ für Ausgaben)
 
-## Installation & Voraussetzungen
-
-*   Python 3.x
-*   Keine externen Bibliotheken erforderlich (nutzt nur Standard-Bibliotheken `csv`, `collections`, `datetime`).
 
 ## Verwendung
 
@@ -83,30 +170,3 @@ data = data_reports1.load_data(filename)
 ## Berichte anzeigen
 data_reports1.show_summary(data)
 data_reports1.show_largest_category(data)
-
-## Projektstruktur
-
-personlicher-budget-tracker/
-
-│
-
-
-├── main.py                  # Programmstart, Menü, Steuerlogik
-
-├── login.py                 # Passwort-Handling, Login, Hashing
-
-├── budgetfunctions.py       # Eingaben (Einnahmen, Ausgaben)
-
-├── data_reports.py          # Auswertungen und Monatsanzeigen
-
-├── validationfunctions.py   # Prüfung von Datum, Betrag, Kategorie
-
-│
-
-├── kategorien.csv           # Liste gültiger Kategorien
-
-├── passwort.csv             # Passwort (verschlüsselt)
-
-├── budget_2025_12.csv       # Beispielhafte Monatsdatei
-
-└── README.md                # Diese Datei
