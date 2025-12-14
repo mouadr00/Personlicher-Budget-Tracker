@@ -18,12 +18,8 @@ def add_income(data, allowed_categories):
     amount = input_amount("Betrag (+): ")
 
     # Monat/Jahr aus Datum extrahieren
-    try:
         dt = datetime.strptime(date, "%d.%m.%Y")
         month, year = dt.month, dt.year
-    except ValueError:
-        print("Ungültiges Datum.")
-        return
 
 
     # Daten für ensprechenden Monat laden
@@ -37,7 +33,7 @@ def add_income(data, allowed_categories):
         "Betrag": abs(amount) # immer positiv speichern 
     }
    
-    month_data.append(entry)
+    data.append(entry)
     save_data(filename, data)
     print("Einnahme gespeichert!\n")
 
@@ -54,12 +50,9 @@ def add_expense(data, allowed_categories):
     amount = input_amount("Betrag (-): ")
 
     # Monat/Jahr aus Datum extrahieren
-    try:
         dt = datetime.strptime(date, "%d.%m.%Y")
         month, year = dt.month, dt.year
-    except ValueError:
-        print("Ungültiges Datum.")
-        return
+
 
     # Daten für ensprechenden Monat laden
     filename = get_budget_filename(month, year)
@@ -71,6 +64,6 @@ def add_expense(data, allowed_categories):
         "Kategorie": category,
         "Betrag": -abs(amount) # immer negativ speichern 
     }
-    month_data.append(entry)
+    data.append(entry)
     save_data(filename, data)
     print("Ausgabe gespeichert!\n")
