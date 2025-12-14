@@ -128,8 +128,8 @@ personlicher-budget-tracker/
 
 ### Teamarbeit
 - Person 1: Login-System, Programmstart, Menüführung
-- Person 2: Einnahmen/Ausgaben, CSV-Speicherung
-- Person 3: Auswertungen, Kategorien, Monatsübersichten
+- Person 2: Einnahmen/Ausgaben, Validierung, Buchungen 
+- Person 3: CSV-Speicherung, Auswertungen, Kategorien, Monatsübersichten
 
 Die Aufgaben wurden klar getrennt und in separaten Modulen umgesetzt.
 
