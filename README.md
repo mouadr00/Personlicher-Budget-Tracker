@@ -92,6 +92,28 @@ personlicher-budget-tracker/
 *   Python 3.x
 *   Keine externen Bibliotheken erforderlich
 
+## Bedienung
+Nach dem Login erscheint ein Menü mit folgenden Optionen:
+
+**1.** Einnahme hinzufügen
+**2.** Ausgabe hinzufügen
+**3.** Verfügbares Budget anzeigen
+**4.** Grösste Ausgabenkategorie anzeigen
+**5.** Monatliche Einträge anzeigen
+**6.** Budgetplan speichern
+**7.** Passwort ändern
+**8.** Programm beenden 
+
+Alle Eingaben werden geprüft und fehlerhafte Eingaben abgefangen. 
+
+--
+
+##Teamarbeit
+- Person 1: Login-System, Programmstart, Menüführung
+- Person 2: Einnahmen/Ausgaben, CSV-Speicherung
+- Person 3: Auswertungen, Kategorien, Monatsübersichten
+
+Die Aufgaben wurden klar getrennt und in separaten Modulen umgesetzt.
 
 ## Eingaben, Validierung und Buchungen
 
