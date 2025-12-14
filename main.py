@@ -46,7 +46,6 @@ def handle_choice(choice, data, month, year):
     elif choice == "2":
         add_expense(data, allowed_categories)
     elif choice == "3":
-        show_summary(data)
         filename = get_budget_filename(month, year)
         data = load_data(filename)
         show_summary(data)
