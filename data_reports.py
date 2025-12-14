@@ -60,7 +60,7 @@ def load_data(filename: str) -> list[dict]:
     """CSV-Datei lesen und jede Zeile als Dict zurückgeben."""
     data = []
     try:
-        with open(filename, mode="r", newline="", encoding="utf-8") as f:
+        with open(filename, mode="r", newline="", encoding="utf-8-sig") as f:
             reader = csv.DictReader(f)
             for row in reader:
                 # Betrag in float umwandeln
