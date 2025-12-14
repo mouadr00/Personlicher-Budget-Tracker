@@ -52,13 +52,13 @@ Dieses Projekt bietet:
 
 ### Verwendete Python-Konzepte
 
-- **Datentypen:** 'str', 'int', 'float', 'list', 'dict'
-- **Kontrollstrukturen:** 'if / elif / else', 'for', 'while'
-- **Funktionen:** Separate Funktionen pro Hauptaufgabe ('add_income()', 'add_expenses()', 'show_summary()', 'save_data()' usw.)
-- **Dateiverarbeitung:** 'open()', 'read()', 'write()', 'csv'-Modul
-- **Exception Handling:** 'try / except' für Eingabe- und Datei-Validierung
+- **Datentypen:** `str`, `int`, `float`, `list`, `dict`
+- **Kontrollstrukturen:** `if / elif / else`, `for`, `while`
+- **Funktionen:** Separate Funktionen pro Hauptaufgabe (`add_income()`, `add_expenses()`, `show_summary()`, `save_data()` usw.)
+- **Dateiverarbeitung:** `open()`, `read()`, `write()`, `csv`-Modul
+- **Exception Handling:** `try / except` für Eingabe- und Datei-Validierung
 - **String-Operationen:** Formatiere Tabellen- und Betragsausgabe
-- **Modularisierung:** Aufteilung in mehrere '.py'-Dateien
+- **Modularisierung:** Aufteilung in mehrere `.py`-Dateien
 
 ---
 
@@ -91,6 +91,7 @@ personlicher-budget-tracker/
 
 *   Python 3.x
 *   Keine externen Bibliotheken erforderlich
+
 
 ## Eingaben, Validierung und Buchungen
 
