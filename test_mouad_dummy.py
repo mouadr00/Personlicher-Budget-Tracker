@@ -28,22 +28,14 @@ def main():
     controller.create_expense(user_id, 200, "Freizeit", "Kino und Essen", "2026-05-10")
     controller.create_income(user_id, 400, "Nebeneinkommen", "Nebenjob", "2026-05-15")
 
-    print("SUMMARY")
-    print(controller.get_summary(user_id))
-
-    print("\nBALANCE")
-    print(controller.get_balance(user_id))
-
-    print("\nMONTHLY REPORT")
-    for transaction in controller.get_monthly_report(user_id, "2026-05"):
-        print(transaction)
+    monthly_summary = controller.get_monthly_summary(user_id, "2026-05")
 
     print("\nMONTHLY SUMMARY")
-    print(controller.get_monthly_summary(user_id, "2026-05"))
-
-    print("\nTOP EXPENSE CATEGORY")
-    print(controller.get_top_expense_category(user_id, "2026-05"))
-
+    print(f"Monat: {monthly_summary['month']}")
+    print(f"Einnahmen: {monthly_summary['income']:.2f} CHF")
+    print(f"Ausgaben: {monthly_summary['expenses']:.2f} CHF")
+    print(f"Saldo: {monthly_summary['balance']:.2f} CHF")
+    print(f"Grösste Ausgabenkategorie: {monthly_summary['top_expense_category']}")
 
 if __name__ == "__main__":
     main()
