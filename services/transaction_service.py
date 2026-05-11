@@ -53,6 +53,7 @@ class TransactionService:
             category_id=category.id,
             description=self.validate_description(description),
             date=self.validate_date(date_str),
+            category=category,
         )
         return transaction
 
@@ -66,5 +67,6 @@ class TransactionService:
             category_id=category.id,
             description=self.validate_description(description),
             date=self.validate_date(date_str),
+            category=category,
         )
         return transaction
