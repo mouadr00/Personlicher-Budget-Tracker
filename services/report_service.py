@@ -1,23 +1,15 @@
 class ReportService:
     """Erstellt Monatsberichte und Auswertungen."""
 
+
     def __init__(self, transaction_dao) -> None:
         self.transaction_dao = transaction_dao
 
-    def get_monthly_report(self, user_id: int, month: str):
-        if not isinstance(month, str) or len(month) != 7:
-            raise ValueError("Monat muss im Format YYYY-MM sein.")
+    def get_monthly_report(self, user_id: int, month: int, year: int):
+        return self.transaction_dao.get_transactions_by_user_and_month(user_id, month, year)
 
-        transactions = self.transaction_dao.get_all_by_user(user_id)
-        return [t for t in transactions if str(t.date).startswith(month)]
-
-    def get_top_expense_category(self, user_id: int, month: str | None = None):
-        transactions = self.transaction_dao.get_all_by_user(user_id)
-
-        if month is not None:
-            if not isinstance(month, str) or len(month) != 7:
-                raise ValueError("Monat muss im Format YYYY-MM sein.")
-            transactions = [t for t in transactions if str(t.date).startswith(month)]
+    def get_top_expense_category(self, user_id: int, month: int, year: int):
+        transactions = self.transaction_dao.get_transactions_by_user_and_month(user_id, month, year)
 
         expense_totals = {}
 
@@ -31,8 +23,8 @@ class ReportService:
 
         return max(expense_totals, key=expense_totals.get)
 
-    def get_monthly_summary(self, user_id: int, month: str) -> dict:
-        monthly_transactions = self.get_monthly_report(user_id, month)
+    def get_monthly_summary(self, user_id: int, month: int, year: int) -> dict:
+        monthly_transactions = self.get_monthly_report(user_id, month, year)
 
         income = round(
             sum(t.amount for t in monthly_transactions if t.transaction_type == "income"),
@@ -42,13 +34,12 @@ class ReportService:
             sum(t.amount for t in monthly_transactions if t.transaction_type == "expense"),
             2,
         )
-        balance = round(income - expenses, 2)
 
         return {
-            "month": month,
+            "month": f"{year}-{month:02d}",
             "transactions": monthly_transactions,
             "income": income,
             "expenses": expenses,
-            "balance": balance,
-            "top_expense_category": self.get_top_expense_category(user_id, month),
+            "balance": round(income - expenses, 2),
+            "top_expense_category": self.get_top_expense_category(user_id, month, year),
         }
