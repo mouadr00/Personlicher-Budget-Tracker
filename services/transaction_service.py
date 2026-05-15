@@ -1,4 +1,5 @@
 from datetime import datetime
+from domain.models import Transaction
 
 
 class TransactionService:
@@ -19,7 +20,7 @@ class TransactionService:
 
         return round(amount, 2)
 
-    def validate_date(self, date_str: str) -> str:
+    def validate_date(self, date_str: str):
         if not date_str or not str(date_str).strip():
             raise ValueError("Datum darf nicht leer sein.")
 
@@ -28,7 +29,7 @@ class TransactionService:
         except ValueError as exc:
             raise ValueError("Datum muss im Format YYYY-MM-DD sein.") from exc
 
-        return parsed.strftime("%Y-%m-%d")
+        return parsed.date()
 
     def validate_description(self, description: str) -> str:
         return "" if description is None else str(description).strip()
@@ -46,27 +47,25 @@ class TransactionService:
     def add_income(self, user_id: int, amount: float, category_name: str, description: str, date_str: str):
         category = self.get_category_by_name(category_name)
 
-        transaction = self.transaction_dao.create(
-            user_id=user_id,
-            transaction_type="income",
+        transaction = Transaction(
             amount=self.validate_amount(amount),
-            category_id=category.id,
-            description=self.validate_description(description),
             date=self.validate_date(date_str),
-            category=category,
+            description=self.validate_description(description),
+            transaction_type="income",
+            user_id=user_id,
+            category_id=category.id,
         )
-        return transaction
+        return self.transaction_dao.add_transaction(transaction)
 
     def add_expense(self, user_id: int, amount: float, category_name: str, description: str, date_str: str):
         category = self.get_category_by_name(category_name)
 
-        transaction = self.transaction_dao.create(
-            user_id=user_id,
-            transaction_type="expense",
+        transaction = Transaction(
             amount=self.validate_amount(amount),
-            category_id=category.id,
-            description=self.validate_description(description),
             date=self.validate_date(date_str),
-            category=category,
+            description=self.validate_description(description),
+            transaction_type="expense",
+            user_id=user_id,
+            category_id=category.id,
         )
-        return transaction
+        return self.transaction_dao.add_transaction(transaction)
