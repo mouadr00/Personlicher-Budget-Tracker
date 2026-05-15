@@ -7,31 +7,28 @@ def create_pages():
     def dashboard():
 
         with ui.row().classes('w-full'):
+
             sidebar()
         
-            with ui.column().classes('p-8'):
+            with ui.column().classes('p-8 w-full bg-gray-100 min-h-screen'):
 
-        ui.label(
-            'Persönlicher Budget Tracker'
-        ).classes('text-3xl font-bold text-blue-500 text-Helvetica mb-4') 
+        ui.label('Persönlicher Budget Tracker').classes('text-3xl font-bold text-blue-500 text-Helvetica mb-4') 
 
-        ui.label(
-            'Dashboard'
-            ).classes('text-3xl font-bold')
+        ui.label('Dashboard').classes('text-3xl font-bold')
 
-        with ui.row():
+        with ui.row().classes('gap-4 mt-6'):
 
-            ui.card().classes('p-6')
+            ui.card().classes('p-6 w-64')
                 ui.label('Einnahmen')
-                ui.label('CHF 2500')
+                ui.label('CHF 2500').classes('text-2xl font-bold text-green-600')
             
-            ui.card().classes('p-6')
+            ui.card().classes('p-6 w-64')
                 ui.label('Ausgaben')
-                ui.label('CHF 1500')
+                ui.label('CHF 1500').classes('text-2xl font-bold text-red-600')
             
-            ui.card().classes('p-6')
+            with ui.card().classes('p-6 w-64'):
                 ui.label('Saldo') 
-                ui.label('CHF 1000') 
+                ui.label('CHF 1000').classes('text-2xl font-bold text-blue-600') 
             
             ui.table(
                 columns=[
@@ -47,19 +44,15 @@ transactions = [
     {'date': '2026-03-25',
      'category': 'Gehalt',
      'description': 'Teilzeitjob',
-     'amount': '+CHF 2500'
-     },
+     'amount': '+CHF 2500'},
     {'date': '2026-03-26',
      'category': 'Miete',
      'description': 'Wohnung',
-     'amount': '-CHF 1200'
-     },   
+     'amount': '-CHF 1200'},   
      {'date': '2026-03-27',
      'category': 'Lebensmittel',
      'description': 'Supermarkt',
-     'amount': '-CHF 100'
-     }   
-]
+     'amount': '-CHF 100'}]
 
 def create_pages():
 
@@ -67,41 +60,20 @@ def create_pages():
 @ui.page('/login')
 def login_page():
 
-    with ui.column().classes(
-        'w-full h-screen items-center justify-center bg-gray-100'
-    ):
-        with ui.card().classes(
-            'p-8 w-96 shadow-xl rounded-2xl bg-white'
-        ):
+    with ui.column().classes('w-full h-screen items-center justify-center bg-gray-100'):
+        with ui.card().classes('p-8 w-96 shadow-xl rounded-2xl bg-white'):
 
-            ui.label('' \
-            'Budget Tracker Login'
-            ).classes(
-                'text-2xl font-bold text-gray-800 mb-6 text-center'
-            )
+            ui.label('' \ 'Budget Tracker Login').classes('text-2xl font-bold text-gray-800 mb-6 text-center')
 
-            username = ui.input(
-                'Benutzername'
-                ).classes('w-full')
+            username = ui.input('Benutzername').classes('w-full')
 
-            password = ui.input(
-                'Passwort', 
-                password=True
-                ).classes('w-full')
+            password = ui.input('Passwort', password=True).classes('w-full')
 
             def login():
-                ui.notify(
-                    f'Willkommen, {username.value}!',
-                    color='green'
-                )
+                ui.notify(f'Willkommen, {username.value}!',color='green')
                 ui.navigate.to('/')
 
-            ui.button(
-                'Login',
-                on_click=login
-                ).classes(
-                'w-full mt-4 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300'
-            )
+            ui.button('Login', on_click=login).classes('w-full mt-4 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300')
 
 # Dashboard
 @ui.page('/')
@@ -112,9 +84,7 @@ def dashboard_page():
         sidebar()
 
         with ui.column().classes('p-8 w-full bg-gray-100 min-h-screen'):
-            ui.label(
-                'Dashboard'
-                ).classes('text-3xl font-bold text-gray-800 mb-6')
+            ui.label('Dashboard').classes('text-3xl font-bold text-gray-800 mb-6')
             
             page_layout('Dashboard')
 
@@ -249,15 +219,11 @@ def expense_page():
 
         sidebar()
 
-        with ui.column().classes(
-            'p-8 w-full bg-gray-100 min-h-screen'
-        ):
+        with ui.column().classes('p-8 w-full bg-gray-100 min-h-screen'):
         
             page_layout('- Ausgabe hinzufügen')
             
-            with ui.card().classes(
-                'p-8 w-full max-w-xl shadow-xl'
-            ):
+            with ui.card().classes('p-8 w-full max-w-xl shadow-xl'):
                 ui.input('Betrag')
                 ui.input('Beschreibung')
 
