@@ -6,26 +6,8 @@ class TransactionDAO:
         self.transactions = []
         self.next_id = 1
 
-    def create(
-        self,
-        user_id: int,
-        transaction_type: str,
-        amount: float,
-        category_id: int,
-        description: str,
-        date: str,
-        category,
-    ):
-        transaction = Transaction(
-            id=self.next_id,
-            user_id=user_id,
-            transaction_type=transaction_type,
-            amount=amount,
-            category_id=category_id,
-            description=description,
-            date=date,
-            category=category,
-        )
+    def add_transaction(self, transaction: Transaction) -> Transaction:
+        transaction.id = self.next_id
         self.transactions.append(transaction)
         self.next_id += 1
         return transaction
