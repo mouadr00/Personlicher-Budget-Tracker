@@ -9,20 +9,12 @@ def sidebar():
         
         ui.link('Dashboard', '/').classes('text-white text-lg mb-3')
 
-        ui.link('+ Einnahme hinzufügen, '/income').classes(
-                'text-white text-lg mb-3'
-        )
+        ui.link('+ Einnahme hinzufügen', '/income').classes('text-white text-lg mb-3')
 
-        ui.link('- Ausgabe hinzufügen', '/expense').classes(
-                'text-white text-lg mb-3'
-        )
-        ui.link('Monatsübersicht', '/monthly-overview').classes(
-                'text-white text-lg mb-3'
-        )
+        ui.link('- Ausgabe hinzufügen', '/expense').classes('text-white text-lg mb-3')
+        ui.link('Monatsübersicht', '/monthly-overview').classes('text-white text-lg mb-3')
 
-        ui.link('Kategorien, '/categories').classes(
-                'text-white text-lg mb-3'
-        )
+        ui.link('Kategorien', '/categories').classes('text-white text-lg mb-3')
 
 def page_layout(title: str):
 
@@ -30,7 +22,7 @@ def page_layout(title: str):
         
         ui.label(title).classes('text-3xl font-bold text-blue-500 text-Helvetica mb-6')
 
-def summary_card(title: str, value: str, color: str):):
+def summary_card(title: str, value: str, color: str):
 
     with ui.card().classes(f'p-6 w-64 shadow-lg rounded-xl bg-{color}-100'):
 
