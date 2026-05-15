@@ -11,18 +11,16 @@ def create_pages():
             sidebar()
         
             with ui.column().classes('p-8 w-full bg-gray-100 min-h-screen'):
-
-        ui.label('Persönlicher Budget Tracker').classes('text-3xl font-bold text-blue-500 text-Helvetica mb-4') 
-
-        ui.label('Dashboard').classes('text-3xl font-bold')
+                ui.label('Persönlicher Budget Tracker').classes('text-3xl font-bold text-blue-500 text-Helvetica mb-4') 
+                ui.label('Dashboard').classes('text-3xl font-bold')
 
         with ui.row().classes('gap-4 mt-6'):
 
-            ui.card().classes('p-6 w-64')
+            with ui.card().classes('p-6 w-64')
                 ui.label('Einnahmen')
                 ui.label('CHF 2500').classes('text-2xl font-bold text-green-600')
             
-            ui.card().classes('p-6 w-64')
+            with ui.card().classes('p-6 w-64')
                 ui.label('Ausgaben')
                 ui.label('CHF 1500').classes('text-2xl font-bold text-red-600')
             
@@ -44,15 +42,19 @@ transactions = [
     {'date': '2026-03-25',
      'category': 'Gehalt',
      'description': 'Teilzeitjob',
-     'amount': '+CHF 2500'},
+     'amount': '+CHF 2500'
+     },
     {'date': '2026-03-26',
      'category': 'Miete',
      'description': 'Wohnung',
-     'amount': '-CHF 1200'},   
+     'amount': '-CHF 1200'
+     },   
      {'date': '2026-03-27',
      'category': 'Lebensmittel',
      'description': 'Supermarkt',
-     'amount': '-CHF 100'}]
+     'amount': '-CHF 100'
+     }   
+]
 
 def create_pages():
 
@@ -60,14 +62,27 @@ def create_pages():
 @ui.page('/login')
 def login_page():
 
-    with ui.column().classes('w-full h-screen items-center justify-center bg-gray-100'):
-        with ui.card().classes('p-8 w-96 shadow-xl rounded-2xl bg-white'):
+    with ui.column().classes(
+        'w-full h-screen items-center justify-center bg-gray-100'
+    ):
+        with ui.card().classes(
+            'p-8 w-96 shadow-xl rounded-2xl bg-white'
+        ):
 
-            ui.label('' \ 'Budget Tracker Login').classes('text-2xl font-bold text-gray-800 mb-6 text-center')
+            ui.label('' \
+            'Budget Tracker Login'
+            ).classes(
+                'text-2xl font-bold text-gray-800 mb-6 text-center'
+            )
 
-            username = ui.input('Benutzername').classes('w-full')
+            username = ui.input(
+                'Benutzername'
+                ).classes('w-full')
 
-            password = ui.input('Passwort', password=True).classes('w-full')
+            password = ui.input(
+                'Passwort', 
+                password=True
+                ).classes('w-full')
 
             def login():
                 ui.notify(f'Willkommen, {username.value}!',color='green')
@@ -84,7 +99,9 @@ def dashboard_page():
         sidebar()
 
         with ui.column().classes('p-8 w-full bg-gray-100 min-h-screen'):
-            ui.label('Dashboard').classes('text-3xl font-bold text-gray-800 mb-6')
+            ui.label(
+                'Dashboard'
+                ).classes('text-3xl font-bold text-gray-800 mb-6')
             
             page_layout('Dashboard')
 
@@ -196,8 +213,8 @@ def income_page():
 
                 ui.select(
                     [
-                        'Lohn'
-                        'Nebenjob'
+                        'Gehalt',
+                        'Lebensmittel',
                         'Sparen'
                     ],
                     label='Kategorie'
@@ -205,11 +222,7 @@ def income_page():
 
                 ui.input('Datum')
 
-                ui.button(
-                    'Einnahme speichern',
-                ).classes(
-                    'w-full mt-4 bg-green-600 text-white py-2 rounded-lg hover:bg-green-600 transition-colors duration-300'
-                )
+                ui.button('Einnahme speichern',).classes('w-full mt-4 bg-green-600 text-white py-2 rounded-lg hover:bg-green-600 transition-colors duration-300')
 
 # Ausgabe hinzufügen
 @ui.page('/expense')
@@ -224,25 +237,15 @@ def expense_page():
             page_layout('- Ausgabe hinzufügen')
             
             with ui.card().classes('p-8 w-full max-w-xl shadow-xl'):
+
                 ui.input('Betrag')
                 ui.input('Beschreibung')
 
-                ui.select(
-                    [
-                        'Miete'
-                        'Lebensmittel'
-                        'Freizeit'
-                    ],
-                    label='Kategorie'
-                )
+                ui.select(['Miete', 'Lebensmittel', 'Freizeit',], label='Kategorie')
 
                 ui.input('Datum')
 
-                ui.button(
-                    'Ausgabe speichern',
-                ).classes(
-                    'w-full mt-4 bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition-colors duration-300'
-                )
+                ui.button('Ausgabe speichern',).classes('w-full mt-4 bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition-colors duration-300')
 
 # Monatsübersicht
 @ui.page('/monthly-overview')
@@ -252,9 +255,7 @@ def monthly_overview_page():
 
         sidebar()
 
-        with ui.column().classes(
-            'p-8 w-full bg-gray-100 min-h-screen'
-        ):
+        with ui.column().classes('p-8 w-full bg-gray-100 min-h-screen'):
         
             page_layout('Monatsübersicht')
             
@@ -319,9 +320,8 @@ def categories_page():
                 {'name': 'Versicherung'},
                 {'name': 'Freizeit'},
                 {'name': 'Transport'},
-                {'name': 'Sparen'}
-                {'name': 'Sonstiges'}
-                {'name': 'Sonstiges'}
+                {'name': 'Sparen'},
+                {'name': 'Sonstiges'},
             ]
 
             ui.table(
