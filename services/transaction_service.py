@@ -55,6 +55,8 @@ class TransactionService:
             user_id=user_id,
             category_id=category.id,
         )
+        transaction.category = category
+
         return self.transaction_dao.add_transaction(transaction)
 
     def add_expense(self, user_id: int, amount: float, category_name: str, description: str, date_str: str):
@@ -68,4 +70,6 @@ class TransactionService:
             user_id=user_id,
             category_id=category.id,
         )
+        transaction.category = category
+
         return self.transaction_dao.add_transaction(transaction)

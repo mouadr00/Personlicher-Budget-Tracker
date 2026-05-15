@@ -28,7 +28,24 @@ def main():
     controller.create_expense(user_id, 200, "Freizeit", "Kino und Essen", "2026-05-10")
     controller.create_income(user_id, 400, "Nebeneinkommen", "Nebenjob", "2026-05-15")
 
-    monthly_summary = controller.get_monthly_summary(user_id, "2026-05")
+    print("SUMMARY")
+    summary = controller.get_summary(user_id, 5, 2026)
+    print(f"Einnahmen: {summary['total_income']:.2f} CHF")
+    print(f"Ausgaben: {summary['total_expenses']:.2f} CHF")
+    print(f"Saldo: {summary['balance']:.2f} CHF")
+
+    print("\nBALANCE")
+    print(f"{controller.get_balance(user_id, 5, 2026):.2f} CHF")
+
+    print("\nMONTHLY REPORT")
+    for transaction in controller.get_monthly_report(user_id, 5, 2026):
+        print(
+            f"{transaction.date} | {transaction.transaction_type} | "
+            f"{transaction.amount:.2f} CHF | {transaction.category.name} | "
+            f"{transaction.description}"
+        )
+
+    monthly_summary = controller.get_monthly_summary(user_id, 5, 2026)
 
     print("\nMONTHLY SUMMARY")
     print(f"Monat: {monthly_summary['month']}")
@@ -36,6 +53,10 @@ def main():
     print(f"Ausgaben: {monthly_summary['expenses']:.2f} CHF")
     print(f"Saldo: {monthly_summary['balance']:.2f} CHF")
     print(f"Grösste Ausgabenkategorie: {monthly_summary['top_expense_category']}")
+
+    print("\nTOP EXPENSE CATEGORY")
+    print(controller.get_top_expense_category(user_id, 5, 2026))
+
 
 if __name__ == "__main__":
     main()
